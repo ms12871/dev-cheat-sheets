@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ page.title }} - developer and infrastructure quick reference.">
+  <title>{{ page.title }} | Dev Notes</title>
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body class="doc-page">
+  <div class="doc-container">
+    <header class="doc-masthead">
+      <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="Dev Notes home">DN<span>/</span></a>
+      <a class="doc-home" href="{{ '/' | relative_url }}">&larr; ALL CHEAT SHEETS</a>
+    </header>
+
+    <main class="doc-content">
+      {{ content }}
+    </main>
+
+    <footer class="doc-footer">
+      <span>DEV NOTES / DOCUMENTATION</span>
+      <span>OFFICIAL SOURCE LINKS INCLUDED</span>
+    </footer>
+  </div>
+</body>
+</html>
