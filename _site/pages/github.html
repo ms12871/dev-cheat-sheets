@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Git & GitHub Workflow Cheat Sheet - developer and infrastructure quick reference.">
+  <title>Git & GitHub Workflow Cheat Sheet | Dev Notes</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body class="doc-page">
+  <div class="doc-container">
+    <header class="doc-masthead">
+      <a class="wordmark" href="/" aria-label="Dev Notes home">DN<span>/</span></a>
+      <a class="doc-home" href="/">&larr; ALL CHEAT SHEETS</a>
+    </header>
+
+    <main class="doc-content">
+      <h1 id="git--github-workflow-cheat-sheet">Git &amp; GitHub Workflow Cheat Sheet</h1>
+
+<h2 id="daily-command-reference">Daily command reference</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Command</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git init</code></td>
+      <td style="text-align: left">Initialize a local Git repository.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git clone &lt;url&gt;</code></td>
+      <td style="text-align: left">Clone an existing remote repository.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git status</code></td>
+      <td style="text-align: left">View the current branch and staged, modified, or untracked files.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git diff</code></td>
+      <td style="text-align: left">Inspect unstaged changes.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git diff --staged</code></td>
+      <td style="text-align: left">Inspect changes staged for commit.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git add &lt;path&gt;</code></td>
+      <td style="text-align: left">Stage a file or directory.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git add -p</code></td>
+      <td style="text-align: left">Interactively stage selected change hunks.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git add -A</code></td>
+      <td style="text-align: left">Stage all additions, modifications, and deletions.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git commit -m "message"</code></td>
+      <td style="text-align: left">Commit staged changes with a descriptive message.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git log --oneline --graph --decorate --all</code></td>
+      <td style="text-align: left">View compact history across branches.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git branch</code></td>
+      <td style="text-align: left">List local branches; <code class="language-plaintext highlighter-rouge">git branch -d &lt;name&gt;</code> deletes a merged branch.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git switch -c &lt;branch-name&gt;</code></td>
+      <td style="text-align: left">Create and switch to a new branch.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git switch &lt;branch-name&gt;</code></td>
+      <td style="text-align: left">Switch to an existing branch.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git fetch origin</code></td>
+      <td style="text-align: left">Download remote updates without integrating them.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git pull --ff-only</code></td>
+      <td style="text-align: left">Fetch and update the current branch only when it can fast-forward.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git push -u origin &lt;branch&gt;</code></td>
+      <td style="text-align: left">Push a branch and set its upstream tracking branch.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git merge &lt;branch&gt;</code></td>
+      <td style="text-align: left">Merge another branch into the current branch.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git stash push -m "message"</code></td>
+      <td style="text-align: left">Save tracked working changes temporarily; add <code class="language-plaintext highlighter-rouge">-u</code> to include untracked files.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git stash list</code> / <code class="language-plaintext highlighter-rouge">git stash pop</code></td>
+      <td style="text-align: left">List saved stashes / apply and remove the newest stash.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git restore --staged &lt;path&gt;</code></td>
+      <td style="text-align: left">Unstage a path without discarding its working-tree edits.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git restore &lt;path&gt;</code></td>
+      <td style="text-align: left">Discard unstaged edits to a tracked path. This is destructive.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">git revert &lt;commit&gt;</code></td>
+      <td style="text-align: left">Create a new commit that reverses an earlier commit. Often preferable for shared history.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="feature-branch-loop">Feature branch loop</h2>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git switch <span class="nt">-c</span> docs/add-reference
+git status
+git diff
+git add <span class="nt">-p</span>
+git diff <span class="nt">--staged</span>
+git commit <span class="nt">-m</span> <span class="s2">"docs: add reference guide"</span>
+git push <span class="nt">-u</span> origin docs/add-reference
+</code></pre></div></div>
+
+<p>Use <code class="language-plaintext highlighter-rouge">git status</code> and <code class="language-plaintext highlighter-rouge">git diff --staged</code> before every commit. Keep each commit focused and use a message that describes the change.</p>
+
+<h2 id="github-flow">GitHub Flow</h2>
+
+<ol>
+  <li>Create a short-lived branch from the default branch.</li>
+  <li>Make changes and commit them on that branch.</li>
+  <li>Push the branch and open a pull request with a clear summary and context.</li>
+  <li>Review feedback and update the branch; automated checks can catch problems before merge.</li>
+  <li>Merge the approved pull request.</li>
+  <li>Delete the merged branch.</li>
+</ol>
+
+<h2 id="resolve-a-merge-conflict">Resolve a merge conflict</h2>
+
+<ol>
+  <li>Run <code class="language-plaintext highlighter-rouge">git status</code> to identify conflicted paths.</li>
+  <li>Edit each file, remove conflict markers, and keep the intended result.</li>
+  <li>Stage resolved files with <code class="language-plaintext highlighter-rouge">git add &lt;path&gt;</code>.</li>
+  <li>Complete the merge with <code class="language-plaintext highlighter-rouge">git commit</code> when Git requests it. To abandon an in-progress merge, use <code class="language-plaintext highlighter-rouge">git merge --abort</code>.</li>
+</ol>
+
+<h2 id="recovery-notes">Recovery notes</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">git restore --staged &lt;path&gt;</code> is the usual way to unstage without losing edits.</li>
+  <li><code class="language-plaintext highlighter-rouge">git restore &lt;path&gt;</code> overwrites unstaged work with the index version. Check <code class="language-plaintext highlighter-rouge">git diff</code> first.</li>
+  <li><code class="language-plaintext highlighter-rouge">git revert &lt;commit&gt;</code> preserves shared history by adding a reversing commit. Avoid rewriting commits that teammates may already have fetched.</li>
+  <li>A stash is temporary local storage, not a backup. Inspect with <code class="language-plaintext highlighter-rouge">git stash list</code> and <code class="language-plaintext highlighter-rouge">git stash show -p</code> before applying or dropping entries.</li>
+</ul>
+
+<h2 id="official-references">Official references</h2>
+
+<ul>
+  <li><a href="https://git-scm.com/docs">Git command reference</a></li>
+  <li><a href="https://git-scm.com/docs/git-restore">git restore</a></li>
+  <li><a href="https://git-scm.com/docs/git-stash">git stash</a></li>
+  <li><a href="https://git-scm.com/docs/git-revert">git revert</a></li>
+  <li><a href="https://docs.github.com/en/get-started/using-github/github-flow">GitHub Flow</a></li>
+  <li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">GitHub Pages publishing sources</a></li>
+</ul>
+
+<p>Review <code class="language-plaintext highlighter-rouge">git status</code> before committing, and inspect changes with <code class="language-plaintext highlighter-rouge">git diff --staged</code> before pushing.</p>
+
+    </main>
+
+    <footer class="doc-footer">
+      <span>DEV NOTES / DOCUMENTATION</span>
+      <span>OFFICIAL SOURCE LINKS INCLUDED</span>
+    </footer>
+  </div>
+</body>
+</html>
