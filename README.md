@@ -4,6 +4,8 @@ This project is a compact reference hub for common developer and infrastructure 
 
 The library covers:
 
+The main URL of the site: https://ms12871.github.io/dev-cheat-sheets/
+
 - **Terraform:** CLI commands, plan review, state, workspaces, and configuration hygiene.
 - **VS Code:** Keyboard shortcuts, editing and navigation, and useful settings.
 - **Git & GitHub:** Everyday Git commands, branch workflows, GitHub Flow, and recovery guidance.
